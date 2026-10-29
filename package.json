@@ -1,0 +1,24 @@
+{
+  "name": "dsh-fa-rtl",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Persian (fa) RTL reading direction and the Vazirmatn typeface for the DSH web GUI.",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": []
+    }
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,6 @@
+# dsh-fa-rtl bundle patch: one row, no host service.
+# The browser half is bound by the package.json `dsh.client` declaration.
+- insert:
+    - id: fa-rtl
+      name: 'dsh-fa-rtl'
+      config: {}
