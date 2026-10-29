@@ -20,22 +20,24 @@ panels at their physical left edge on top of the content.
 
 ## Install
 
-Link the package into a DSH profile:
+Two commands, then restart:
 
-```json
-{
-  "dependencies": {
-    "dsh-fa-rtl": "link:C:/path/to/dsh-fa-rtl"
-  },
-  "dsh": {
-    "profile": {
-      "bundles": ["@deepseek-ai/dsh-base", "@deepseek-ai/dsh-web-app", "dsh-fa-rtl"]
-    }
-  }
-}
+```sh
+dsh plugin --profile web add github:ItsyaboiParsa/dsh-fa-rtl
+node -e "const p=require('path').join(process.env.DSH_HOME||require('os').homedir()+'/.dsh','profiles/web/package.json'),j=require(p),b=j.dsh.profile.bundles;b.includes('dsh-fa-rtl')||b.push('dsh-fa-rtl');require('fs').writeFileSync(p,JSON.stringify(j,null,2)+'\n')"
 ```
 
-Then restart `dsh web` and hard-reload (`Ctrl+F5`).
+The second line only registers the package in `dsh.profile.bundles` — DSH does
+not do that for you. Restart `dsh web`, hard-reload (`Ctrl+F5`).
+
+Uninstall:
+
+```sh
+dsh plugin --profile web remove dsh-fa-rtl
+```
+
+…then delete `"dsh-fa-rtl"` from `dsh.profile.bundles` in
+`~/.dsh/profiles/web/package.json`.
 
 ## Build
 
